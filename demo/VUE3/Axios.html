@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./axios.min.js"></script>
+</head>
+<body>
+    <div id="app">
+        <select v-model="data.type">
+            <option value="0">请选择</option>
+            <option value="1">ID</option>
+            <option value="2">标题</option>
+        </select>
+
+        <input type="text" v-model="data.content">
+        <button @click="search">搜索</button>
+
+        <ul>
+            <li v-for="(value, index) in data.list">
+                {{ value }}
+            </li>
+        </ul>
+    </div>
+
+    <script type="module">
+        import { createApp, reactive } from './vue.esm-browser.js'
+
+        createApp({
+            setup() {
+                const data = reactive({
+                    type: "0", //搜索类型
+                    content: "", //搜索内容
+                    list: [],
+                })
+
+                //搜索
+                const search = () => {
+                    //console.log(data.content)
+                    data.list = [] //清空
+
+                    if (data.type == "1") {
+                        let id = data.content //参数
+
+                        //get请求
+                        // axios.get(`http://127.0.0.1/article/get/id/${id}`).then(response => {
+                        axios.get("http://localhost:8002/category/list").then(response =>{
+                            console.log("get.data:", response.data)
+                            // data.list.push( response.data)
+                            // console.log("get.dataaa:", response.data.data)
+                            // console.log("get.dataaaa:", response.data.status)
+                            if(response.data.status == "success"){
+                                if(response.data.data){
+                                    data.list.push(response.data.data) //push 向数组末尾添加一个或多个元素
+                                }
+                            }
+                        }).catch(error => {
+                            console.log("get.error:", error)
+                        })
+                    } else if (data.type == "2") {
+                        //参数
+                        let param  = { 
+                            title: data.content
+                        }
+
+                        //post请求 [axios post的默认请求头是 application/json]
+                        // axios.post('http://127.0.0.1/article/postJson/search', param).then(response => {
+                        //     console.log("postJson.data:", response.data)
+
+                        //     if(response.data.status == "success"){
+                        //         for(let i=0; i<response.data.data.length; i++){
+                        //             data.list.push(response.data.data[i]) //push 向数组末尾添加一个或多个元素
+                        //         }
+                        //     }
+                        // }).catch(error => {
+                        //     console.log("postJson.error:", error)
+                        // })
+                    }
+                }
+
+                return {
+                    data,
+                    search
+                }
+            }
+        }).mount("#app")
+    </script>
+</body>
+</html>

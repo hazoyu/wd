@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+         //父类
+    class Person {
+        name
+        gender
+
+        constructor(name, gender) {
+            this.name = name
+            this.gender = gender
+        }
+
+        sleep() {
+            return `${this.name} 休息中...`
+        }
+    }
+
+    //子类
+    class David extends Person {
+        web
+
+        constructor(name, gender, web) {
+            super(name, gender) //调用父类构造函数
+
+            this.web = web
+        }
+
+        eat() {
+            return `${this.name} 正在吃饭...`
+        }
+    }
+
+    let david = new David("邓瑞", "男", "dengruicode.com")
+
+    console.log("david", david)
+    console.log("web", david.web)
+    console.log("eat", david.eat())
+    
+    console.log("gender", david.gender)
+    console.log("sleep", david.sleep())
+    </script>
+</body>
+</html>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <h3>{{number}}</h3>
+        <img :src=`./${number}.jpg` style="width: 200px;"> <hr>
+
+        <button @click="next">下一张</button>
+        <button @click="prev">上一张</button>
+
+        <ul>
+            <li v-for="value in 2">
+                <a href="#" @click="jump(value)">{{value}}</a>
+            </li>
+        </ul>
+
+    </div>
+
+ 
+
+
+    <script type="module">
+        import { createApp, ref } from './vue.esm-browser.js'
+        createApp({
+            setup(){
+                const number=ref(1)
+                
+                const next=()=>{
+                    number.value++
+
+                    if(number.value==3){
+                        number.value=1
+                    }
+                }
+
+                const prev=()=>{
+                    number.value--
+
+                    if(number.value==0){
+                        number.value=2
+                    }
+                }
+
+                const jump=(value)=>{
+                    number.value=value
+
+                }
+
+                return{
+                    number,
+                    next,
+                    prev,
+                    jump
+                }
+            }
+        }).mount("#app")
+    </script>
+</body>
+</html>

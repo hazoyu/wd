@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+            class Person {
+        //若在类中没有显式声明属性, 但在构造函数或方法中引用了未声明的属性, 会自动将其视为实例属性
+        name //姓名
+        web //个人网站
+
+        //构造函数 用于初始化属性
+        constructor(name, web) {
+            this.name = name
+            this.web = web
+        }
+
+        //方法 返回个人信息
+        info() {
+            //return "姓名:" + this.name + " 个人网站:" + this.web
+            return `姓名:${this.name} 个人网站:${this.web}` //模板字符串
+        }
+    }
+
+    //在面向对象编程中, 实例(instance) 是根据 类(class) 创建的具体对象, 使用 关键字new 可以创建一个类的实例
+    //创建 Person类 实例 传入 "姓名"、"个人网站" 参数
+    let person = new Person("邓瑞", "dengruicode.com")
+
+    console.log("person", person)
+    console.log("web", person.web)
+    console.log("info", person.info())
+    </script>
+</body>
+</html>

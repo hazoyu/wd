@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let person = {
+            name: "邓瑞",
+            gender: "男",
+            web: "dengruicode.com",
+        }
+    
+        //向对象中添加新的属性
+        person.height = 175
+        //在对象中，每个键都是唯一的，当使用相同的键再次赋值时，会替换原来键对应的值
+        person.web = "www.dengruicode.com"
+        console.log("person", person)
+    
+        //删除属性
+        delete person.gender
+        console.log("person", person)
+    
+        //检查对象是否包含指定属性
+        let has = "gender" in person
+        console.log("has", has)
+    
+        //获取对象的属性数量
+        console.log("keysArr", Object.keys(person)) //Object.keys() 用于获取对象属性名的数组
+        console.log("length", Object.keys(person).length)
+    
+        //将对象转换为数组
+        let arr = Object.entries(person) //Object.entries() 用于获取对象的键值对数组
+        console.log("arr", arr)
+    
+        //使用for...in循环遍历对象 
+        //for...of 用于遍历可迭代对象[如数组、Set、Map、字符串等]
+        //for...in 用于遍历对象的可枚举属性
+        for (let key in person) {
+            console.log("for...in", key, person[key])
+        }
+    
+        //使用forEach方法遍历对象的属性和值
+        Object.entries(person).forEach(([key, value]) => {
+            console.log("forEach", key, value)
+        })
+    
+        //清空对象
+        person = {}
+        console.log("length", Object.keys(person).length)
+    </script>
+</body>
+</html>

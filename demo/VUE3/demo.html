@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="vue.global.js"></script>
+</head>
+<body>
+    <div id="app">
+        {{msg}}
+
+        <h2>{{web.title}}</h2>
+        <h2>{{web.url}}</h2>
+    </div>
+    <script>
+        const{createApp,reactive} =Vue
+
+        createApp({
+             // setup选项 用于设置响应式数据和方法等
+            setup(){
+                const web=reactive({
+                    title:"aaa",
+                    url:"aaa.com"
+                })
+                
+                return{
+                    msg:"ssss",
+                    web
+                }
+            }
+        }).mount("#app")
+    </script>
+</body>
+</html>

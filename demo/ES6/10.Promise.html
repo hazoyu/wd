@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+          /*
+            Promise 表示承诺在未来的某个时刻可能会完成并返回结果
+
+            对于某些需要时间来处理结果的操作, 如用户登录、读取文件等, 可以使用 Promise 对象来执行异步操作
+            Promise 对象有三种状态 pending(待处理)、fulfilled(已履行)、rejected(被驳回)
+
+            当创建一个 Promise 对象时, 它的初始状态为 pending, 表示异步执行还未完成
+            当异步执行成功时, 会调用 resolve 函数把 Promise 对象的状态改变为 fulfilled, 可通过 then 方法来获取异步操作的结果
+            当异步执行异常时, 会调用 reject 函数把 Promise 对象的状态更改为 rejected, 可通过 catch 方法来处理错误
+
+            注
+                异步操作是指在程序执行过程中, 某个操作不会立即返回结果, 而是需要一段时间的等待
+        */
+
+        /*
+            let promise = new Promise((resolve, reject) => {
+                
+            })
+
+            //当创建一个 Promise 对象时, 它的初始状态为 pending, 表示异步执行还未完成
+            console.log("promise:", promise) //pending
+        */
+
+        /*
+            let promise = new Promise((resolve, reject) => {
+                resolve("邮件发送成功") //异步执行成功
+            })
+            //当异步执行成功时, 会调用 resolve 函数把 Promise 对象的状态改变为 fulfilled, 可通过 then 方法来获取异步操作的结果
+            console.log("promise:", promise) //fulfilled
+
+            promise.then(result => {
+                console.log("result:", result)
+            })
+        */
+
+        /*
+            let promise = new Promise((resolve, reject) => {
+                reject("邮件发送失败") //异步执行失败
+            })
+            //当异步执行失败时, 会调用 reject 函数把 Promise 对象的状态更改为 rejected, 可通过 catch 方法来处理错误
+            console.log("promise:", promise) //rejected
+
+            promise.catch(error => {
+                console.log("error:", error)
+            })
+        */
+
+        let promise = new Promise((resolve, reject) => {
+            //resolve("邮件发送成功")
+            reject("邮件发送失败")
+        }).then(result => {
+            console.log("result:", result)
+        }).catch(error => {
+            console.log("error:", error)
+        }).finally(() => {
+            console.log("异步执行结束")
+        })
+    </script>
+</body>
+</html>

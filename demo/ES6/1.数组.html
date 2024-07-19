@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+        //定义数组
+        let arr = [10, 11]
+        console.log("arr", arr)
+    
+        //向数组末尾添加一个或多个元素, 并返回修改后数组的长度
+        let arrLength = arr.push(12, 13)
+        console.log("arr", arr) //[10, 11, 12, 13]
+        console.log("arrLength", arrLength)
+    
+        //向数组开头添加一个或多个元素, 并返回修改后数组的长度
+        arrLength = arr.unshift(8, 9)
+        console.log("arr", arr) //[8, 9, 10, 11, 12, 13]
+        console.log("arrLength", arrLength)
+    
+        //删除数组中第一个元素, 并返回被删除元素
+        let delElement = arr.shift()
+        console.log("arr", arr) //[9, 10, 11, 12, 13]
+        console.log("delElement", delElement) //8
+    
+        //删除数组最后一个元素, 并返回被删除元素
+        delElement = arr.pop()
+        console.log("arr", arr) //[9, 10, 11, 12]
+        console.log("delElement", delElement) //13
+    
+        //删除元素, 并返回包含被删除元素的数组 splice(要删除元素的索引位置, 要删除的元素数量)
+        //let delArr = arr.splice(2, 1) // 删除第3个元素 [数组的索引是从 0 开始]
+        let delArr = arr.splice(2, 2) // 删除第3和第4个元素
+        console.log("arr", arr) //[9, 10]
+        console.log("delArr", delArr) //[11, 12]
+    
+        //颠倒数组中元素的顺序
+        arr.reverse()
+        console.log("arr", arr) //[10, 9]
+    
+        //数组中的元素按照首字母顺序排序
+        let arr2 = ['banana', 'apple', 'orange']
+        arr2.sort()
+        console.log("arr2", arr2) //['apple', 'banana', 'orange']
+    
+        //数组中的元素按照数字排序
+        let arr3 = [5, 20, 13, 1, 4]
+        //arr3.sort() //默认情况下 sort() 方法使用字符串排序, 导致并没有按照数字大小排序
+        /*
+            比较函数 (a, b) => a - b 接收两个参数 a 和 b, 用于比较这两个元素的大小, 返回 a - b 的结果决定了 sort() 方法的排序顺序
+            若 a < b, 则 a - b 是一个负数, 表示 a 应该在 b 前面
+            若 a = b, 则 a - b 是 0, 位置保持不变
+            若 a > b, 则 a - b 是一个正数, 表示 a 应该在 b 后面
+        */
+        arr3.sort((a, b) => a - b)
+        console.log("arr3", arr3) //[1, 4, 5, 13, 20]
+    
+        //筛选符合条件的元素, 返回一个新的数组
+        let arr4 = [10, 11, 12, 13, 14, 15]
+        let newArr = arr4.filter((value, index) => {
+            return value > 12
+        })
+        console.log("newArr", newArr) //[13, 14, 15]
+    
+        //将多个数组或值合并为一个新数组
+        let arr5 = ["十六", "十七", "十八"]
+        //newArr = arr3.concat(arr5) //[1, 4, 5, 13, 20, '十六', '十七', '十八']
+        newArr = arr4.concat(arr5, 19, 20) //[10, 11, 12, 13, 14, 15, '十六', '十七', '十八', 19, 20]
+        console.log("newArr", newArr)
+    
+        //使用for...of循环遍历数组
+        let arr6 = ["邓瑞", "dengruicode.com", 100] //数组可以包含不同的数据类型
+        for (let item of arr6) {
+            console.log("for...of", item)
+        }
+    
+        //使用forEach方法来遍历数组
+        arr6.forEach((value,index) => {
+            console.log("forEach", value,"index", index)
+        })
+    </script>
+</body>
+</html>

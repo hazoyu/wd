@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //创建Map集合
+         //let person = new Map() //创建一个空的Map集合
+         let person = new Map([
+             ["name", "邓瑞"],
+             ["gender", "男"],
+             ["web", "dengruicode.com"]
+         ])
+     
+         //向Map集合中添加新的元素
+         person.set('height', 175)
+         //在Map集合中, 每个键都是唯一的, 当使用相同的键再次调用 set() 方法时, 会替换原来键对应的值
+         person.set('web', "www.dengruicode.com")
+         console.log("person", person)
+     
+         //删除元素
+         person.delete('gender')
+         console.log("person", person)
+     
+         //检查Map集合是否包含指定元素
+         console.log("person.has", person.has('gender'))
+     
+         //获取Map集合的大小
+         console.log("person.size", person.size)
+     
+         //将Map集合转换为数组
+         let arr = Array.from(person)
+         console.log("arr", arr)
+     
+         //使用扩展运算符将 Map集合 转换为 数组
+         let arr2 = [...person]
+         console.log("arr2", arr2)
+     
+         //使用for...of循环遍历Map集合
+         //解构可以从数组或对象中提取值并赋给变量
+         //[key, value] 就是一种解构语法, 用于将 Map 集合中的键值对解构为 key 和 value 两个变量
+         for (let [key, value] of person) {
+             console.log("for...of", key, value)
+         }
+     
+         //使用forEach方法遍历Map集合的键值对
+         person.forEach((value, key) => {
+             console.log("forEach", key, value)
+         })
+     
+         //清空Map集合
+         person.clear()
+         console.log("person.size", person.size)
+     </script>
+</body>
+</html>

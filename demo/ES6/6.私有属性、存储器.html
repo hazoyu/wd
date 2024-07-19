@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+         class Person {
+        name
+        #web //私有属性是指仅在类内部可访问和操作的属性, 外部无法直接访问和修改
+
+        constructor(name, web) {
+            this.name = name
+            this.#web = web
+        }
+
+        //使用存取器 getter 获取私有属性
+        get web() {
+            return this.#web
+        }
+
+        //使用存取器 setter 设置私有属性
+        set web(value) {
+            this.#web = value
+        }
+
+        info() {
+            return `姓名:${this.name} 个人网站:${this.web}`
+        }
+    }
+
+    let person = new Person("邓瑞", "dengruicode.com")
+
+    console.log("person", person)
+    console.log("web", person.web) //使用存取器 getter 获取私有属性
+    console.log("info", person.info())
+
+    person.web = "www.dengruicode.com" //使用存取器 setter 设置私有属性
+    console.log("web", person.web)
+    </script>
+</body>
+</html>

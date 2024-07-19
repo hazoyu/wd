@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script  type="module">
+          //从 index.js 文件中导入 title、web、getWeb 变量/函数
+    import { title as webTitle, web, getWeb } from './index.js'
+
+    console.log(webTitle)
+    console.log(web)
+    console.log(getWeb())
+    </script>
+</body>
+</html>
+
+
+
+<!-- ------ import、export
+//index.js
+let title = "邓瑞编程"
+let web = "dengruicode.com"
+
+/*
+let getWeb = () => {
+    return "www.dengruicode.com"
+}
+*/
+let getWeb = () => "www.dengruicode.com"
+
+export { title, web, getWeb } //将多个变量或函数分别导出
+
+<script type="module">
+    //从 index.js 文件中导入 title、web、getWeb 变量/函数
+    import { title as webTitle, web, getWeb } from './index.js'
+
+    console.log(webTitle)
+    console.log(web)
+    console.log(getWeb())
+</script>
+
+------ default
+//index.js
+let title = "邓瑞编程"
+let web = "dengruicode.com"
+
+let getWeb = () => "www.dengruicode.com"
+
+//将一个对象作为整体导出, 导出的对象包含 title、web、getWeb 三个属性
+export default { title, web, getWeb }
+
+<script type="module">
+    import obj from "./index.js"
+
+    console.log(obj.title)
+    console.log(obj.web)
+    console.log(obj.getWeb())
+</script>
+
+------ as
+//index.js
+let title = "邓瑞编程"
+let web = "dengruicode.com"
+let getWeb = () => "www.dengruicode.com"
+export { title, web, getWeb } //将多个变量或函数分别导出
+
+<script type="module">
+    import * as obj from "./index.js"
+
+    console.log(obj.title)
+    console.log(obj.web)
+    console.log(obj.getWeb())
+</script> -->

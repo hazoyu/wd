@@ -1,0 +1,336 @@
+a {
+	text-decoration: none; /* 去除默认的下划线 */
+	outline: none;	/* 去除旧版浏览器的点击后的外虚线框 */
+	color: #000;	/* 去除默认的颜色和点击后变化的颜色 */ 
+}
+
+ul {
+    list-style: none;
+}
+li {
+    list-style: none;
+}
+* {
+    margin: 0;
+    padding: 0;
+}
+
+div{
+    display: block;
+    color: black;
+    text-align: center;
+}
+
+
+
+
+
+.warp{
+    width: 1190px;
+    margin: 0 auto;
+}
+.shortcut{
+    width: 100%;
+    height: 30px;
+    border-bottom: 1px solid #ddd;
+    background: #e3e4e5;
+    a{
+        color: #999;
+    }
+}
+
+.fl{
+    float: left;
+}
+.shortcut .warp{
+    height: 30px;
+    line-height: 30px;
+    color: #999;
+    font-size: 12px;
+    li{
+        float: left;
+    }
+    .dt{
+        padding-left: 7px;
+        padding-right: 7px;
+    }
+    .fr{
+        float: right;
+    }
+    .style-red{
+        color: red;
+    }
+    li.spacer{
+        overflow: hidden;
+        margin: 11px 5px 0;
+        width: 1px;
+        height: 10px;
+        background: #ccc;
+    }
+}
+#ttbar-login{
+    margin-right: 8px;
+    
+}
+/* 头 */
+.head{
+    width: 100%;
+    height: 140px;
+    background: #fff;
+    border-bottom: 1px solid #ddd;
+    
+    .warp{
+        height: 140px;
+        position: relative;
+        .logo{
+            left: 0;
+            top: 10px;
+            width: 190px;
+            height: 120px;
+            background: #fff;
+            position: absolute;
+            a{  
+                display: block;
+                width: 100%;
+                height: 100%;
+                img{
+                    width: 100%;
+                    height: 100%;
+                }
+            }
+        }
+    }
+    
+}
+.search{
+    width: 100%;
+    height: 60px;
+}
+.search-m{
+    width: 1190px;
+    margin: 0 auto;
+    height: 60px;
+    position: relative;
+}
+.search-logo{
+    display: none;
+    position: absolute;
+    left: 0;
+    top: 4px;
+    width: 62px;
+    height: 40px;
+    background: url(../images/logo.jpg) no-repeat;    /* no-repeat不重复 */
+    background-position: 10px -116px;
+    background-size: contain;
+}
+
+.search-m .form{
+    position: absolute;
+    left: 260px;
+    top:38px;
+    width: 546px;
+    height: 32px;
+    border: 2px solid #e2231a;
+}
+.search-m .keyword{
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 2px 44px 2px 17px;
+    width: 425px;
+    height: 26px;
+    border: 1px solid transparent;
+    line-height: 26px;
+    font-size: 12px;
+    outline: none;   /*去除默认黑边 */
+}
+.search-m .form>button{
+    left: 488px;
+    position: absolute;
+    width: 58px;
+    height: 32px;
+    background-color: #e1251b;
+    border: none;
+    font-size: 20px;
+    font-weight: 700;
+    color: #fff;
+    cursor: pointer;
+}
+.search-helper{
+    display: none;  /*  隐藏 */
+    overflow: hidden;   /* 溢出隐藏 */
+    position: absolute;
+    left: 0;
+    top: 35px;
+    width: 488px;
+    border: 0.8px solid #ccc;
+    background-color: #fff;
+    z-index: 1;
+    box-shadow: 1px 2px 1px rgba(0, 0, 0, .2); /*  阴影效果 */
+}
+.search-helper p{
+    font-size: 12px;
+    height: 24px;
+    line-height: 24px;
+    padding: 1px 6px;
+    line-height: 24px;
+    cursor: pointer;  /* 鼠标样式 */
+    color: #666
+
+}
+
+body{
+    color: #f4f4f4;
+}
+/* 轮播图 */
+.banner{
+    width: 100%;
+    height: 470px;
+    padding-top: 10px;
+    margin-bottom: 30px;
+
+}
+.banner-box{
+    height: 470px;
+}
+.banner-slide{
+    width: 790px;
+    height: 470px;
+    margin: 0 auto;
+}
+.slide{
+
+    position: relative;
+    width: 590px;
+    height: 470px;
+}
+.prev,.next{
+    position: absolute;
+    top: 50%;
+    margin-top: -20px;
+    width: 25px;
+    height: 35px;
+    line-height: 35px;
+    background-color: rgba(0, 0, 0, 0.15);
+    font-size: 20px;
+    cursor: pointer;
+}
+.prev{
+    left: 0;
+    border-radius: 0 18px 18px 0; /* 圆角 */
+}
+.next{
+    right: 0;
+    border-radius: 18px 0 0 18px;
+}
+.banner-btn{
+    position: absolute;
+    left: 30px;
+    bottom: 20px;
+    width: 57px;
+    height: 15px;
+}
+.banner-btn li{
+    /* outline: none; */
+    float: left;
+    width: 8px;
+    height: 8px;
+    border: 1px solid rgba(0, 0, 0, .05);
+    margin-right: 4px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, .4);
+}
+.banner-btn .active{
+    position: relative;
+    top: -1px;
+    width: 8px;
+    height: 8px;
+    border: 2px solid rgba(0, 0, 0, .1);
+    background-color: rgba(255, 255, 255, 0.8);
+}
+
+.content{
+    width: 100%;
+    background-color: #f4f4f4;
+    position: relative;
+}
+.miaosha{
+    height: 260px;
+    margin-bottom: 20px;
+    background-color: palegoldenrod;
+}
+.youxuan{
+    height: 980px;
+    margin-bottom: 20px;
+    background-color: palegreen;
+}
+.guangchang{
+    height: 1005px;
+    margin-bottom: 20px;
+    background-color: paleturquoise;
+}
+.tuijian{
+    height: 1870px;
+    background-color: palevioletred;
+}
+.elevator{
+    position: absolute;
+    top: 0;
+    left: 50%;
+    margin-left: 615px;
+    width: 58px;
+    height: 252px;
+    /* background-color: red; */
+}
+.elevator a{
+    display: block;
+    width: 38px;
+    height: 38px;
+    line-height: 19px;
+    font-size: 14px;
+    color: 10px;
+    padding: 10px;
+    transform: color .2s ease;
+    background-color: #fff;
+}
+.elevator-fix{
+    /* 固定定位 */
+    position: fixed; 
+    top: 75px;
+    /* 调用动画 0。5s  */
+    animation: eleShow 0.5s ease;
+}
+
+/* 动画 */
+@keyframes eleShow {
+    /* 动画的起始点（0%） */
+    0%{
+        top:0;
+    }
+    /* 动画的结束点（100%） */
+    100%{
+        top: 75px;
+    }
+}
+.search-fix{
+    position: fixed;
+    z-index: 10;
+    left: 0;
+    top: 0;
+    width: 100%;
+    border-bottom: 2px solid #f10214;
+    background-color: #fff;
+    box-shadow: 2px 2px 2px rgba(0 ,0 ,0 ,.2);
+    animation: seachTop 0.5s ease-in-out;
+}
+.search-fix .form{
+    top: 20px;
+}
+@keyframes seachTop {
+    0%{
+        top: -50px;
+    }
+    100%{
+        top:0;
+    }
+}

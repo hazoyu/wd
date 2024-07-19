@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        {{msg}}
+
+        <h2>{{web.title}}</h2>
+        <h2>{{web.url}}</h2>
+    </div>
+
+    <script type="module">
+        import { createApp, reactive } from './vue.esm-browser.js'
+        
+        createApp({
+             // setup选项 用于设置响应式数据和方法等
+            setup() {
+                const web = reactive({
+                    title: "邓瑞编程",
+                    url: "dengruicode.com"
+                })
+    
+                return {
+                    msg:"success",
+                    web
+                }
+            }
+        }).mount("#app")
+    </script>
+
+</body>
+</html>

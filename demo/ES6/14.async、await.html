@@ -1,0 +1,85 @@
+<!-- 同步
+     代码按照编写顺序逐行执行,后续的代码必须等待当前正在执行的代码完成之后才能执行
+     当遇到耗时的操作(如网络请求等)时,主线程会被阻塞,直到该操作完成
+     举例
+     在单车道路段上发生交通事故导致交通堵塞, 只有拖走事故车辆后, 后续车辆才能继续行驶
+异步
+     当遇到耗时的操作发生时, 主线程不会被阻塞, 主线程会继续执行后续的代码, 而非等待耗时操作完成
+     举例
+     在具有多车道的高速公路上, 发生交通事故后, 可以走其他车道继续行驶
+async
+     当一个函数被标记为 async 后, 该函数会返回一个 Promise 对象
+await
+     只能在 async 函数内部使用, 加上 await 关键字后, 会在执行到这一行时暂停函数的剩余部分，
+     等待网络请求完成,然后继续执行并获取到请求返回的数据 -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="axios/dist/axios.min.js"></script>
+</head>
+
+<body>
+  <script>
+
+    //回调地狱是指过度使用嵌套的回调函数,导致代码难以阅读和维护
+    //get请求
+    axios.get('http://127.0.0.1/get').then(response => {
+      console.log("get.data:", response.data)
+      if (response.data.data.web == "dengruicode.com") {
+
+        //get请求2
+        return axios.get('http://127.0.0.1/article/get/id/1').then(response2 => {
+          console.log("get2.data:", response2.data)
+          if (response2.data.data.name == "邓瑞") {
+
+            //get请求3
+            return axios.get('http://127.0.0.1/article/get/search/title/入门').then(response3 => {
+              console.log("get3.data:", response3.data)
+            })
+          }
+        })
+      }
+    }).catch(error => {
+      console.log("get.error:", error)
+    }).finally(() => {
+      console.log("get.finally")
+    })
+
+    //async/await 使用同步的方式编写异步代码, 避免回调地狱
+    //优势 在处理多个异步操作的情况下, 可以使代码更简洁易读
+    const getData = async () => {
+      try {
+        //get请求
+        const response = await axios.get('http://127.0.0.1/get')
+        console.log("async.get.data:", response.data)
+        if (response.data.data.web === "dengruicode.com") {
+
+          //get请求2
+          const response2 = await axios.get('http://127.0.0.1/article/get/id/1')
+          console.log("async.get2.data:", response2.data)
+          if (response2.data.data.name === "邓瑞") {
+
+            //get请求3
+            const response3 = await axios.get('http://127.0.0.1/article/get/search/title/入门')
+            console.log("async.get3.data:", response3.data)
+          }
+        }
+
+      } catch (error) {
+        console.log("async.get.error:", error)
+      } finally {
+        console.log("async.get.finally")
+      }
+    }
+
+    getData()
+
+  </script>
+</body>
+
+</html>
